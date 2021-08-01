@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand">Contribuyente</span>
+  </div>
+</nav>
+
+<div class="alert alert-dismissible alert-danger text-center" *ngIf="error.isError">
+  <strong>{{error.message | uppercase }}</strong> 
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 mt-3 mb-1">
+      <div class="form-group">
+        <label>Buscar por:</label>
+        <select class="form-control" [(ngModel)]="buscarPor">
+          <option>{{parametrosBusquedas.rnc}}</option>
+          <option>{{parametrosBusquedas.RazonSocial}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-1 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <form class="d-flex">
+            <input class="form-control me-sm-2" [(ngModel)]="form.parametro" name="parametro" type="text" placeholder="Consultar">
+            <button [disabled]='loanding' (click)="consultarContribuyente()" class="btn btn-primary ml-2 my-2 my-sm-0">Consultar</button>
+            <button [disabled]='loanding' (click)="reset()" class="btn btn-dark ml-2 my-2 my-sm-0">Limpiar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12" *ngIf="loanding">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row"> 
+    <div class="col-md-12" *ngIf="Contribuyente">
+      <div class="card">
+        <div class="card-body table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">RNC</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">Nombre Comercial</th>
+                <th scope="col">Actividad Economica</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Estatus</th>
+                <th scope="col">Regimen De Pagos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-active">
+                <th scope="row">{{Contribuyente.rnc}}</th>
+                <td>{{Contribuyente.razonSocial}}</td>
+                <td>{{Contribuyente.nombreComercial}}</td>
+                <td>{{Contribuyente.actividadEconomica}}</td>
+                <td>{{Contribuyente.fecha}}</td>
+                <td>{{Contribuyente.estatus}}</td>
+                <td>{{Contribuyente.regimenDePagos}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
