@@ -1,4 +1,4 @@
-# Consemiendo [API de los contribuyentes](https://github.com/Erinxon/api-contribuyentes)
+# Consumiendo [API de los contribuyentes](https://github.com/Erinxon/api-contribuyentes)
 ## Aplicación para consultar los contribuyentes.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
